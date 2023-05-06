@@ -1,12 +1,15 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
-import utilStyles from '../styles/utils.module.css'
-import Layout from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
+import Layout from '../layout/default';
+import ShowMeDiv from '../components/ShowMeDiv';
+import NavBar from '../components/NavBar';
+import ContentTextList from '../components/ContentTextList';
+import configData from '../config/page.config';
 import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps () {
-  console.log('我为什么会执行？')
   const allPostsData = getSortedPostsData();
   return {
     props: {
@@ -15,28 +18,40 @@ export async function getStaticProps () {
   };
 }
 
-export async function sayText () { console.info('说话程序执行') }
+export async function sayText () { console.info('说话程序执行') };
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
-      {/* Keep the existing code here */}
+    <Layout>
 
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog - 中文显示</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
+      {/* 配置首页默认头部 */}
+      <Head> 
+        <title>{ configData.appTitle }</title>
+      </Head>
+
+      {/* 头部 */}
+      <section className = { utilStyles.headBackGround } >
+        <NavBar></NavBar>
       </section>
+
+      {/* 内容区域 */}
+      <section className = { utilStyles.contentWrapper }>
+
+        {/* 个人信息展示 */}
+        <ShowMeDiv></ShowMeDiv>
+
+        {/* Blog 内容列表清单 */}
+        <div className = { utilStyles.contentTextListDiv }>
+          <ContentTextList data = {allPostsData}></ContentTextList>
+        </div> 
+
+      </section>
+
+      {/* 尾部 */}
+      <section className = { utilStyles.tailContent }>
+          <div>版本号：AECP2938192-388284892-39922391</div>
+      </section>
+      
     </Layout>
   );
 }

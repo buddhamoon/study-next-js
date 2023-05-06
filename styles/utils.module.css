@@ -5,6 +5,47 @@
     letter-spacing: -0.05rem;
     margin: 1rem 0;
   }
+
+.headBackGround {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  height: 300px;
+  width: 100%;
+  background-color: rgb(68, 68, 197);
+}
+
+.contentWrapper {
+  margin-top: -90px;
+  height: 100%;
+  width: 100%;
+}
+
+.contentTextListDiv {
+  box-sizing: border-box;
+  margin: 30px auto;
+  padding: 30px;
+  max-width: 1180px;
+  min-width: 500px;
+  border-radius: 6px;
+  box-shadow: 6px 3px 10px rgba(0,0,0,0.4);
+  background-color: rgb(252, 253, 253);
+}
+
+.tailContent {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 30px;
+  height: 200px;
+  width: 100%;
+  font-size: 14px;
+  color: #eeececde;
+  background-color: rgb(68, 68, 197);
+}
   
   .headingXl {
     font-size: 2rem;
@@ -17,7 +58,8 @@
   .headingLg {
     font-size: 1.5rem;
     line-height: 1.4;
-    margin: 1rem 0;
+    margin: 30px;
+    color: #eeecec;
   }
   
   .headingMd {
@@ -54,3 +96,20 @@
   .layoutPlanA {
     padding: 50px;
   }
+
+  .backHomeLink {
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .backHomeLink a { 
+    color: #2153db;
+    text-decoration: none 
+  }
+  .backHomeLink a:visited {text-decoration: none;}
+  .backHomeLink a:active {text-decoration: none;}
+  .backHomeLink a:hover {text-decoration: none;}

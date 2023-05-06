@@ -1,0 +1,39 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px auto;
+    height: 180px;
+    max-width: 1180px;
+    min-width: 500px;
+    border-radius: 6px;
+    box-shadow: 6px 3px 10px rgba(0,0,0,0.4);
+    background-color: rgb(252, 253, 253);
+}
+
+.headPortrait {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: azure;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: 30px;
+    overflow: hidden;
+}
+
+.verticalCuttingLine {
+    margin-left: 30px;
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to top, transparent, rgb(172, 170, 170), transparent);
+}
+
+.contentText {
+    margin-left: 30px;
+}
