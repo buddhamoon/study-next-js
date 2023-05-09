@@ -2,7 +2,8 @@ import style from './index.module.css';
 import Image from 'next/image';
 import configData from '../../config/page.config';
 
-export default function ShowMeDiv () {
+export default function ShowMeDiv ( data ) {
+    const context = data['data'] || {};
     return (
         <div className = {style.wrapper}>
             <div className = {style.headPortrait}>
@@ -10,9 +11,7 @@ export default function ShowMeDiv () {
             </div>
             <div className = {style.verticalCuttingLine}></div>
             <div className = {style.contentText}>
-                Hello ~ 欢迎来到由我基于 NextJS 开发的 Blog。
-                <br></br>
-                如有问题，请联系我：hy51hy#126.com
+                <div dangerouslySetInnerHTML={{ __html: context.contentHtml }} />
             </div>
         </div>
     );

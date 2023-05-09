@@ -7,11 +7,13 @@ import NavBar from '../../components/NavBar';
 import Link from 'next/link';
 import ShowMeDiv from '../../components/ShowMeDiv';
 import ContentTextShow from '../../components/ContentTextShow';
+import GetDataTools from '../../tools/getDataTools';
 
 export async function sayText () { console.info('说话程序执行') }
 
+
+// 
 export async function getStaticPaths () {
-    console.info('getStaticPaths 执行')
     const paths = getAllPostIds();
     return {
         paths,
@@ -19,16 +21,20 @@ export async function getStaticPaths () {
     };
 }
 
+// 预渲染准备执行函数，预渲染前执行，提供后续静态渲染必要数据，仅在构建时运行一次。
 export async function getStaticProps({ params }) {
     const postData = await getPostData(params.textContentId);
+    const showMeText = await new GetDataTools().getMarkDownData('self-introduction');
     return {
         props: {
           postData,
+          showMeText
         },
     };
 }
 
-export default function Post( { postData } ) {
+// 动态路由详情页模板
+export default function Post( { postData, showMeText } ) {
     return (
 
         <Layout>
@@ -47,7 +53,7 @@ export default function Post( { postData } ) {
         <section className = { utilStyles.contentWrapper }>
 
           {/* 个人信息展示 */}
-          <ShowMeDiv></ShowMeDiv>
+          <ShowMeDiv data = {showMeText}></ShowMeDiv>
 
           {/* Blog 内容列表清单 */}
           <div className = { utilStyles.contentTextListDiv }>

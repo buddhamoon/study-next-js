@@ -37,3 +37,53 @@
 .contentText {
     margin-left: 30px;
 }
+
+
+/* 移动端兼容视图 */
+@media screen  and (max-width: 600px) {
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: 0px 1em 26px 1em;
+        padding: 2em;
+        height: auto;
+        max-width: 1180px;
+        min-width: 200px;
+        border-radius: 6px;
+        box-shadow: 6px 3px 10px rgba(0,0,0,0.4);
+        background-color: rgb(252, 253, 253);
+    }
+    
+    .headPortrait {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        background-color: azure;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-left: 0px;
+        margin-bottom: 30px;
+        overflow: hidden;
+    }
+    
+    .verticalCuttingLine {
+        margin-left: 0px;
+        margin-bottom: 30px;
+        width: 90%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgb(172, 170, 170), transparent);
+    }
+    
+    .contentText {
+        margin-left: 0px;
+    }
+}
