@@ -110,6 +110,21 @@
     color: #2153db;
     text-decoration: none 
   }
+
   .backHomeLink a:visited {text-decoration: none;}
   .backHomeLink a:active {text-decoration: none;}
   .backHomeLink a:hover {text-decoration: none;}
+
+  /* 移动端兼容视图 */
+@media screen  and (max-width: 700px) {
+  .contentTextListDiv {
+    box-sizing: border-box;
+    margin: 30px 1em;
+    padding: 30px;
+    max-width: 1180px;
+    min-width: 500px;
+    border-radius: 6px;
+    box-shadow: 6px 3px 10px rgba(0,0,0,0.4);
+    background-color: rgb(252, 253, 253);
+  }
+}
